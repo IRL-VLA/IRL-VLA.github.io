@@ -1,12 +1,12 @@
 theme: default # default || classic || dark
 organization: Bosch CR
 twitter: '@peterjaq'
-title: 'DiffVLA: Vision-Language Guided Diffusion Planning for Autonomous Driving'
-journal: "2nd Place in Autonomous Grand E2E AD Challenge 2025"
+title: 'IRL-VLA: Training an Vision-Language-Action Policy via Reward World Model'
+journal: 'Arxiv'
 resources:
   paper: https://arxiv.org/abs/2505.19381
   arxiv: https://arxiv.org/abs/2505.19381
-  code: https://github.com/DiffVLA
+  code: https://github.com/IRL-VLA
   # video: https://www.youtube.com/embed/onbnb_D1wC8?si=xJczUv716Lt5aO4l&amp;start=1150
   # demo: https://colab.research.google.com/
   # huggingface: https://huggingface.co/
@@ -23,49 +23,38 @@ authors:
   - name: Yu Gao
     affiliation: [1]
     position: Researcher
-    # url: https://thispersondoesnotexist.com/    
-  - name: Zhigang Sun
-    affiliation: [1]
-    position: Researcher
+    # url: https://thispersondoesnotexist.com/
   - name: Yiru Wang
     affiliation: [1]
     position: Researcher
-  - name: Jijun Wang*
-    affiliation: [1,2]
-    position: Researcher
-  - name: Jinhao Chai*
-    affiliation: [1,4]
-    position: intern
-  - name: Qian Cao*
-    affiliation: [1,3]
-    position: intern
-  - name: Yuwen Heng
+  - name: Zhigang Sun
     affiliation: [1]
     position: Researcher
-  - name: Hao Jiang*
-    affiliation: [1,5]
-    position: intern
-  - name: Yunda Dong*
-    affiliation: [1,5]
-    position: intern    
-  - name: ZongZheng Zhang
-    affiliation: [2]
-    position: Researcher
-  - name: Xianda Guo
-    affiliation: [2]
+  - name: Yuwen Heng
+    affiliation: [1]
     position: Researcher
   - name: Hao Sun
     affiliation: [1]
     position: Researcher
-  - name: Hao Zhao
+  - name: Lijuan Zhu
+    affiliation: [1]
+    position: Researcher
+  - name: Jinhao Chai*
+    affiliation: [3]
+    position: Researcher
+  - name: Zichong Gu*
+    affiliation: [3]
+    position: Researcher
+  - name: Hao Jiang*
+    affiliation: [4]
+    position: Researcher
+  - name: Li Sun
     affiliation: [2]
     position: Researcher
 
-
 affiliations:
   - Bosch Corporate Research
-  - AIR, Tsinghua University
-  - Southeast University
+  - Bosch Mobility Solutions
   - Shanghai University
   - Shanghai Jiao Tong University
 
@@ -83,10 +72,9 @@ bibtex: >
         url={https://arxiv.org/abs/2505.19381}, 
   }
 
-teaser: 01_framework_overview.png
+teaser: 01_overall_framework.png
 abstract: |
-  Research interest in end-to-end autonomous driving has surged owing to its fully differentiable design integrating modular tasks, i.e. perception, prediction and planing, which enables optimization in pursuit of the ultimate goal. Despite the great potential of the end-to-end paradigm, existing methods suffer from several aspects including expensive BEV (bird’s eye view) computation, action diversity, and sub-optimal decision in complex real-world scenarios. To address these challenges, we propose a novel hybrid sparse-dense diffusion policy, empowered by a Vision-Language Model (VLM), called Diff-VLA. We explore the sparse diffusion representation for efficient multi-modal driving behavior. Moreover, we rethink the effectiveness of VLM driving decision and improve the trajectory generation guidance through deep interaction across agent, map instances and VLM output. Our method shows superior performance in Autonomous Grand Challenge 2025 which contains challenging real and reactive synthetic scenarios. Our methods achieves 45.0 PDMS.
-
+  Vision-Language-Action (VLA) models have demonstrated potential in autonomous driving. However, two critical challenges hinder their development: (1) Existing VLA architectures are typically based on imitation learning in open-loop setup which tends to capture the recorded behaviors in the dataset, leading to suboptimal and constrained  performance, (2) Closed-loop training relies heavily on high-fidelity sensor simulation, where domain gaps and computational inefficiencies pose significant barriers. In this paper, we introduce IRL-VLA, a novel close-loop Reinforcement Learning via Inverse Reinforcement Learning framework with a self-built VLA approach. Our framework proceeds in three-stage paradigm: In the first stage, we propose a VLA architecture and pretrain the VLA policy via imitation learning. In the second stage, we construct a lightweight reward world model via inverse reinforcement learning to enable efficient closed-loop reward computation. To further enhance planning performance, finally, we design specialized reward world model guidance reinforcement learning via PPO(Proximal Policy Optimization) to effectively balance the safety incidents, comfortable driving, and traffic efficiency. Our approach achieves state-of-the-art performance in NAVSIM v2 end-to-end driving benchmark, 1st runner up in CVPR2025 Autonomous Grand Challenge. We hope that our framework will accelerate VLA research in closed-loop autonomous driving.
 body:
   - title: Video
     text: |
